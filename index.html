@@ -144,7 +144,7 @@
         let reminders = [];
         let alarmSound = null;
 
-        // Preload sound on first click
+
         window.onload = function() {
             document.body.addEventListener("click", () => {
                 if (!alarmSound) {
@@ -156,7 +156,7 @@
             });
         };
 
-        // Add reminder
+
         function addReminder() {
             const medicine = document.getElementById("medicine").value;
             const time = document.getElementById("time").value;
@@ -174,7 +174,7 @@
             displayReminders();
         }
 
-        // Display reminders
+
         function displayReminders() {
             const list = document.getElementById("list");
             list.innerHTML = "";
@@ -195,27 +195,27 @@
             });
         }
 
-        // Remove single reminder
+
         function removeReminder(index) {
             reminders.splice(index, 1);
             displayReminders();
         }
 
-        // Stop ringing manually
+
         function stopRing(index) {
             if (alarmSound) alarmSound.pause();
             reminders[index].ringing = false;
             displayReminders();
         }
 
-        // Reset all reminders
+
         function resetAll() {
             if (alarmSound) alarmSound.pause();
             reminders = [];
             displayReminders();
         }
 
-        // Check time every second
+
         setInterval(() => {
             const now = new Date();
             const currentTime = now.toTimeString().slice(0, 5);
